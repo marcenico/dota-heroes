@@ -1,0 +1,192 @@
+@font-face {
+  font-family: "Reaver-Bold";
+  src: url("fonts/Reaver-Bold.woff") format("opentype");
+}
+
+@font-face {
+  font-family: "Reaver-Regular";
+  src: url("fonts/Reaver-Regular.woff") format("opentype");
+}
+
+@font-face {
+  font-family: "Radiance";
+  src: url("fonts/Radiance.woff") format("opentype");
+}
+
+body {
+  font-family: "Reaver-Bold", Helvetica !important;
+  color: white !important;
+  height: 100%;
+  margin: 0;
+  background-image: url("./img/img-cover.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.grid-container {
+  display: -ms-grid;
+  display: grid;
+  margin: auto;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  gap: 10px;
+  max-width: 1400px;
+  width: 80%;
+}
+
+#lista-heroes {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px 10px;
+  margin-top: 45px;
+  -ms-grid-columns: 0.5fr 0.5fr;
+      grid-template-columns: 0.5fr 0.5fr;
+}
+
+@media only screen and (max-width: 600px) {
+  #lista-heroes {
+    gap: 10px;
+    -ms-grid-columns: 0.5fr 0.5fr;
+        grid-template-columns: 0.5fr 0.5fr;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #lista-heroes {
+    gap: 15px;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #lista-heroes {
+    gap: 20px;
+    -ms-grid-columns: (1fr)[5];
+        grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.card-heroe {
+  -webkit-box-shadow: 1px 1px 4px black;
+          box-shadow: 1px 1px 4px black;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.card-heroe > img {
+  width: 100%;
+}
+
+.card-heroe:hover {
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+  -webkit-box-shadow: 3px 3px 8px black;
+          box-shadow: 3px 3px 8px black;
+  background-size: 100%;
+  -webkit-filter: saturate(1);
+          filter: saturate(1);
+  z-index: 4;
+}
+
+.card-heroe:hover .nombre-heroe {
+  bottom: 10px;
+  opacity: 1;
+}
+
+.nombre-heroe {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: calc(100% - 20px);
+  overflow-wrap: anywhere;
+  opacity: 0;
+  height: 30px;
+  bottom: -40px;
+  left: 10px;
+  -webkit-transition: opacity 300ms, bottom 300ms;
+  transition: opacity 300ms, bottom 300ms;
+}
+
+.nombre-heroe > img {
+  height: 100%;
+  margin-right: 5px;
+}
+
+.nombre-heroe div {
+  text-shadow: 1px 1px 2px black;
+}
+
+.titulo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+  color: #fff;
+  font-size: 60px;
+  font-family: Reaver-Bold, serif;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1.12;
+  margin-top: 45px;
+}
+
+.sub-titulo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+  font-family: Radiance, serif;
+  color: #ddd;
+  font-size: 26px;
+  text-align: center;
+  font-weight: 100;
+  line-height: 1.2;
+  margin-top: 45px;
+}
+
+.slide-in-blurred-top {
+  -webkit-animation: slide-in-blurred-top 2s cubic-bezier(0.23, 1, 0.32, 1) both;
+          animation: slide-in-blurred-top 2s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@-webkit-keyframes slide-in-blurred-top {
+  0% {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-blurred-top {
+  0% {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,136 @@
+@font-face {
+  font-family: "Reaver-Bold";
+  src: url("fonts/Reaver-Bold.woff") format("opentype");
+}
+
+@font-face {
+  font-family: "Reaver-Regular";
+  src: url("fonts/Reaver-Regular.woff") format("opentype");
+}
+
+@font-face {
+  font-family: "Radiance";
+  src: url("fonts/Radiance.woff") format("opentype");
+}
+
+body {
+  font-family: "Reaver-Bold", Helvetica !important;
+  color: white !important;
+  height: 100%;
+  margin: 0;
+  background-image: url("./img/img-cover.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.grid-container {
+  display: grid;
+  margin: auto;
+  grid-template-rows: auto;
+  gap: 10px;
+  max-width: 1400px;
+  width: 80%;
+}
+
+#lista-heroes {
+  display: grid;
+  justify-content: center;
+  gap: 10px 10px;
+  margin-top: 45px;
+  grid-template-columns: 0.5fr 0.5fr;
+  @media only screen and (max-width: 600px) {
+    gap: 10px;
+    grid-template-columns: 0.5fr 0.5fr;
+  }
+  @media only screen and (min-width: 768px) {
+    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media only screen and (min-width: 1200px) {
+    gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.card-heroe {
+  box-shadow: 1px 1px 4px black;
+  transition: all 300ms;
+  > img {
+    width: 100%;
+  }
+  &:hover {
+    transform: scale(1.4);
+    box-shadow: 3px 3px 8px black;
+    background-size: 100%;
+    filter: saturate(1);
+    z-index: 4;
+    .nombre-heroe {
+      bottom: 10px;
+      opacity: 1;
+    }
+  }
+}
+
+.nombre-heroe {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  max-width: calc(100% - 20px);
+  overflow-wrap: anywhere;
+  opacity: 0;
+  height: 30px;
+  bottom: -40px;
+  left: 10px;
+  transition: opacity 300ms, bottom 300ms;
+  > img {
+    height: 100%;
+    margin-right: 5px;
+  }
+  div {
+    text-shadow: 1px 1px 2px black;
+  }
+}
+
+.titulo {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  color: #fff;
+  font-size: 60px;
+  font-family: Reaver-Bold, serif;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1.12;
+  margin-top: 45px;
+}
+
+.sub-titulo {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  font-family: Radiance, serif;
+  color: #ddd;
+  font-size: 26px;
+  text-align: center;
+  font-weight: 100;
+  line-height: 1.2;
+  margin-top: 45px;
+}
+
+.slide-in-blurred-top {
+  animation: slide-in-blurred-top 2s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes slide-in-blurred-top {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
