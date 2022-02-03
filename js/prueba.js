@@ -1,4 +1,4 @@
-const listaHeroes = document.getElementById("lista-heroes");
+const listaHeroes = document.getElementById('lista-heroes');
 let heroes = [];
 
 //#region con XMLHttpRequest();
@@ -34,8 +34,8 @@ function getHeroes() {
 
 function injectarListadoHeroes() {
   for (let i = 0; i < heroes.length; i++) {
-    heroes[i].name = heroes[i].name.replace("npc_dota_hero_", "");
-    listaHeroes.insertAdjacentHTML("beforeend", crearPlantillaHeroe(heroes[i]));
+    heroes[i].name = heroes[i].name.replace('npc_dota_hero_', '');
+    listaHeroes.insertAdjacentHTML('beforeend', crearPlantillaHeroe(heroes[i]));
   }
 }
 
@@ -43,20 +43,18 @@ let crearPlantillaHeroe = (heroe) => {
   return `
   <div class="card-heroe">
     <img
-      src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${
-        heroe.name
-      }.png"
+      src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${heroe.name}.png"
       alt="${heroe.name}"
       onerror="this.onerror=null; this.src='./img/no-img.png'" />
     <div class="nombre-heroe">
       <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/${
         heroe.primary_attr === 0
-          ? "hero_strength.png"
+          ? 'hero_strength.png'
           : heroe.primary_attr === 1
-          ? "hero_agility.png"
-          : "hero_intelligence.png"
+          ? 'hero_agility.png'
+          : 'hero_intelligence.png'
       }" />
-      <div>${heroe.name_loc.replace("_", " ").toUpperCase()}</div>
+      <div>${heroe.name_loc.replace('_', ' ').toUpperCase()}</div>
     </div>
   </div>
   `;
