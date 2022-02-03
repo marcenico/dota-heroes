@@ -58,7 +58,7 @@ body {
 @media only screen and (min-width: 768px) {
   #lista-heroes {
     gap: 15px;
-    -ms-grid-columns: (1fr) [3];
+    -ms-grid-columns: (1fr);
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -66,7 +66,7 @@ body {
 @media only screen and (min-width: 1200px) {
   #lista-heroes {
     gap: 20px;
-    -ms-grid-columns: (1fr) [5];
+    -ms-grid-columns: (1fr);
     grid-template-columns: repeat(5, 1fr);
   }
 }
@@ -189,3 +189,4 @@ body {
     opacity: 1;
   }
 }
+/*# sourceMappingURL=styles.css.map */
