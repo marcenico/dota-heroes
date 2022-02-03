@@ -27,10 +27,10 @@ async function getHeroes() {
   await fetch(`https://www.dota2.com/datafeed/herolist?language=spanish`, {
     method: 'GET',
     mode: 'cors',
-    headers: {
-      Accept: 'aplication/json;charset=UTF-8',
-      'Content-Type': 'application/json'
-    }
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    })
   })
     .then((respuesta) => respuesta.json())
     .then((respuesta) => {
