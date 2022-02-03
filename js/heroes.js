@@ -19,11 +19,12 @@ let heroes = [];
 // }+
 //#endregion
 
-//#region con metodo fetch
 getHeroes();
 
-function getHeroes() {
-  fetch(`../assets/data.json`)
+//#region con metodo fetch
+async function getHeroes() {
+  if (!listaHeroes) return;
+  await fetch(`https://www.dota2.com/datafeed/herolist?language=spanish`)
     .then((respuesta) => respuesta.json())
     .then((respuesta) => {
       heroes = respuesta.result.data.heroes;
