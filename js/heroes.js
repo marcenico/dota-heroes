@@ -2,35 +2,42 @@ const listaHeroes = document.getElementById('lista-heroes');
 let heroes = [];
 
 //#region con XMLHttpRequest();
-const httpRequest = new XMLHttpRequest();
-httpRequest.addEventListener('load', getHeroes);
-httpRequest.open('GET', `https://www.dota2.com/datafeed/herolist?language=spanish`);
-httpRequest.send();
+// const httpRequest = new XMLHttpRequest();
+// httpRequest.addEventListener("load", getHeroes);
+// httpRequest.open(
+//   "GET",
+//   `https://www.dota2.com/datafeed/herolist?language=spanish`
+// );
+// httpRequest.send();
 
-function getHeroes() {
-  if (httpRequest.readyState === 4 && httpRequest.status === 200) {
-    let respuesta = JSON.parse(this.responseText);
-    heroes = respuesta.result.data.heroes;
-    injectarListadoHeroes();
-  }
-}
+// function getHeroes() {
+//   if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+//     let respuesta = JSON.parse(this.responseText);
+//     heroes = respuesta.result.data.heroes;
+//     injectarListadoHeroes();
+//   }
+// }+
 //#endregion
 
+getHeroes();
+
 //#region con metodo fetch
-// getHeroes();
-// async function getHeroes() {
-//   if (!listaHeroes) return;
-//   await fetch(`https://www.dota2.com/datafeed/herolist?language=spanish`, {
-//     method: 'GET',
-//     mode: 'cors',
-//     headers: { 'Content-Type': 'application/json' }
-//   })
-//     .then((respuesta) => respuesta.json())
-//     .then((respuesta) => {
-//       heroes = respuesta.result.data.heroes;
-//       injectarListadoHeroes();
-//     });
-// }
+async function getHeroes() {
+  if (!listaHeroes) return;
+  await fetch(`https://www.dota2.com/datafeed/herolist?language=spanish`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      Accept: 'aplication/json;charset=UTF-8',
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((respuesta) => respuesta.json())
+    .then((respuesta) => {
+      heroes = respuesta.result.data.heroes;
+      injectarListadoHeroes();
+    });
+}
 //#endregion
 
 function injectarListadoHeroes() {
