@@ -24,7 +24,11 @@ getHeroes();
 //#region con metodo fetch
 async function getHeroes() {
   if (!listaHeroes) return;
-  await fetch(`https://www.dota2.com/datafeed/herolist?language=spanish`)
+  await fetch(`https://www.dota2.com/datafeed/herolist?language=spanish`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: { 'Content-Type': 'application/json' }
+  })
     .then((respuesta) => respuesta.json())
     .then((respuesta) => {
       heroes = respuesta.result.data.heroes;
